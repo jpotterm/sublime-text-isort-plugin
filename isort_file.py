@@ -1,6 +1,10 @@
 import sublime
 import sublime_plugin
-from isort import SortImports
+
+if sublime.version() < '3':
+    from isort.isort import SortImports
+else:
+    from .isort.isort import SortImports
 
 
 class IsortCommand(sublime_plugin.TextCommand):

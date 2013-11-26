@@ -50,6 +50,11 @@ See the README or the natsort homepage for more details.
 
 """
 
+try:
+    basestring
+except NameError:
+    basestring = str
+
 import re
 # The regex that locates version numbers and floats
 float_re = re.compile(r'([-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?)')

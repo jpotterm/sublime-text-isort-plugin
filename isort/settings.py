@@ -26,8 +26,13 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 
 import os
 from collections import namedtuple
+import sublime
 
-from pies import *
+if sublime.version() < '3':
+    from pies import *
+else:
+    from isort.pies import *
+
 
 WrapModes = ('GRID', 'VERTICAL', 'HANGING_INDENT', 'VERTICAL_HANGING_INDENT', 'VERTICAL_GRID', 'VERTICAL_GRID_GROUPED')
 WrapModes = namedtuple('WrapModes', WrapModes)(*range(len(WrapModes)))

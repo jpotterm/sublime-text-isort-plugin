@@ -35,9 +35,14 @@ import os.path
 from collections import namedtuple
 from sys import path as PYTHONPATH
 from sys import stderr, stdout
+import sublime
 
-from natsort import natsorted
-from pies import *
+if sublime.version() < '3':
+    from natsort.natsort import natsorted
+    from pies import *
+else:
+    from isort.natsort.natsort import natsorted
+    from isort.pies import *
 
 from . import settings
 
